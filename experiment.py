@@ -37,23 +37,59 @@ tarscr['right']['F'] = TextStim(disp, text='F', pos=BOXCORS['right'], height=48,
 
 # feedback screens
 fbstim = {}
-fbstim[0] = TextStim(disp, text='Incorrect', height=24, color=(-1, 1, -1))
+fbstim[0] = TextStim(disp, text='Incorrect', height=24, color=(1, 1, -1))
 fbstim[1] = TextStim(disp, text='Correct', height=24, color=(-1, 1, -1))
 
 # present instructions
 inststim.draw()
 disp.flip()
 waitKeys(maxWait=float('inf'), keyList=None, timeStamped=True) # wait for key press
+
+
+
+
+for cueside in ['left', "right"]:
 # draw fixation mark and left and right boxes
-fixstim.draw()
-lboxstim.draw()
-rboxstim.draw()
-fixonset = disp.flip()
-wait(FIXTIME)
+    fixstim.draw()
+    lboxstim.draw()
+    rboxstim.draw()
+    fixonset = disp.flip()
+    wait(FIXTIME)
 
-fixstim.draw()
-lboxstim.draw()
-rboxstim.draw()
+    fixstim.draw()
+    lboxstim.draw()
+    rboxstim.draw()
+    cuestim[cueside].draw()
+    cueonset = disp.flip()
+    wait(CUETIME)
+    fixstim.draw()
+    lboxstim.draw()
+    rboxstim.draw()
+    cueoffset = disp.flip()
+    wait(0.1 - CUETIME)
+    fixstim.draw()
+    lboxstim.draw()
+    rboxstim.draw()
+    tarscr['right']['E'].draw()
+    taronset = disp.flip()
 
+    resplist = waitKeys(maxWait=float('inf'), keyList=['e', 'f'], timeStamped=True)
+
+    response, presstime = resplist[0]
+    response = response.upper()
+
+    if response == 'E':
+        correct = 1
+    else:
+        correct = 0
+
+    rt = presstime - taronset
+
+    if correct:
+        fbstim[1].draw()
+    else:
+        fbstim[0].draw()
+    disp.flip()
+    wait(FBTIME)
 disp.close()
 

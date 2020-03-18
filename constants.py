@@ -15,8 +15,8 @@ FBTIME  = 1.0
 # squares for cues
 BOXSIZE = 200
 BOXCORS  = {}
-BOXCORS['left'] = (int(DISPSIZE[0]*-0.25), 0)
-BOXCORS['right'] = (int(DISPSIZE[0]*0.25), 0)
+BOXCORS['left'] = (int(DISPSIZE[0]*-0.10), 0)
+BOXCORS['right'] = (int(DISPSIZE[0]*0.10), 0)
 
 
 
