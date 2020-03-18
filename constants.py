@@ -18,6 +18,8 @@ BOXCORS  = {}
 BOXCORS['left'] = (int(DISPSIZE[0]*-0.25), 0)
 BOXCORS['right'] = (int(DISPSIZE[0]*0.25), 0)
 
-cuestim = {}
+
+
+
 
 
