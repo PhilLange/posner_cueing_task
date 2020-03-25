@@ -1,5 +1,9 @@
 # display constans
-DISPSIZE = (4096, 2304)
+from pyautogui import size
+size()
+
+DISPSIZE = tuple(size())
+
 FGC = (-1,-1,-1)
 BGC = (0, 0, 0)
 # stimuli constants
