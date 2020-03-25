@@ -1,0 +1,8 @@
+# os
+.DS_Store
+
+# pycharm
+.idea/**
+
+# py stuff
+__pycache__/
